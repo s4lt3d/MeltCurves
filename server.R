@@ -32,8 +32,8 @@ shinyServer(function(input, output) {
     melt1 <- meltCurve(x, input$Tm1, input$PeakHeight1)
     melt2 <- meltCurve(x, input$Tm2, input$PeakHeight2)
     melt <- melt1 + melt2
-    plot(melt ~ x, main="Melt Curve", xlab="Temp", ylab="Height")
     
+    plot(melt ~ x, main="Melt Curve", xlab="Temp", ylab="Height")
   })
   
   output$meltCurve <- renderPlot({
