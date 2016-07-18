@@ -1,18 +1,12 @@
-
-# This is the user-interface definition of a Shiny web application.
-# You can find out more about building applications with Shiny here:
-#
-# http://shiny.rstudio.com
-#
+# A simple toy to learn about melt curves and how they interact. 
 
 library(shiny)
 
 shinyUI(fluidPage(
 
-  # Application title
   titlePanel("Melt Curve with two peaks"),
 
-  # Sidebar with a slider input for number of bins
+  # Sidebar with sliders for input values for the two melt curves
   sidebarLayout(
     sidebarPanel(
       
@@ -40,7 +34,7 @@ shinyUI(fluidPage(
                   step=0.5)
     ),
 
-    # Show a plot of the generated distribution
+    # Plot the melt curve and the simulated raw curve
     mainPanel(
       plotOutput("meltPlot"),
       plotOutput("meltCurve")
@@ -48,4 +42,5 @@ shinyUI(fluidPage(
   )
 ))
 
+# needed to run the app from code
 runApp() 

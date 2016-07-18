@@ -1,32 +1,29 @@
 
-# This is the server logic for a Shiny web application.
-# You can find out more about building applications with Shiny here:
-#
-# http://shiny.rstudio.com
-#
-
 library(shiny)
 
 
-# Returns a y values of gaussian curve based on x input
+# Returns a y values of gaussian curve based on x values
 gaussian <- function(x, a, b = 75, c) {
   a * exp( -((x-b)^2 / (2 * c^2)) )
 }
 
+# Returns a sigmoid (or logistic) curve based on x values
 sigmoid <- function(x, a=1, b=1, c=1) {
   a / ( 1 + exp(- b * ( x - c)))
 }
 
+# Combines the gaussian and sigmoid functions to make a simulated melt curve
 meltCurve <- function(x, tm, height) {
   sig.height <- height / 7
   melt <- sig.height + sigmoid(x, -sig.height, 0.5, tm) + gaussian(x, height, tm, 1.5)
 }
 
+# Server code for shiny app
 shinyServer(function(input, output) {
   
   output$meltPlot <- renderPlot({
     
-    # generate bins based on input$bins from ui.R
+    # Temp range from 60 to 90 C
     x <- seq(60,90,0.1)
     
     melt1 <- meltCurve(x, input$Tm1, input$PeakHeight1)
@@ -38,7 +35,7 @@ shinyServer(function(input, output) {
   
   output$meltCurve <- renderPlot({
     
-    # generate bins based on input$bins from ui.R
+    # Temp range from 60 to 90 C
     x <- seq(60,90,0.1)
     
     melt1 <- meltCurve(x, input$Tm1, input$PeakHeight1)
