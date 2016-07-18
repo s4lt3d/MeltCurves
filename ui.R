@@ -38,7 +38,6 @@ shinyUI(fluidPage(
                   max = 90,
                   value = 82,
                   step=0.5)
-      
     ),
 
     # Show a plot of the generated distribution
@@ -48,3 +47,5 @@ shinyUI(fluidPage(
     )
   )
 ))
+
+runApp()
