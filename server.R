@@ -2,6 +2,7 @@
 library(shiny)
 
 
+
 # Returns a y values of gaussian curve based on x values
 gaussian <- function(x, a, b = 75, c) {
   a * exp( -((x-b)^2 / (2 * c^2)) )

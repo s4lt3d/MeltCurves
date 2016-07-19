@@ -2,6 +2,7 @@
 
 library(shiny)
 
+
 shinyUI(fluidPage(
 
   titlePanel("Melt Curve with two peaks"),
@@ -44,4 +45,4 @@ shinyUI(fluidPage(
 
 # needed to run the app from code
 
-runApp(port=getOption("shiny.port", 80), host=getOption("shiny.host", "0.0.0.0")) 
+#runApp(port=80)#, host=getOption("shiny.host", "0.0.0.0")) 
