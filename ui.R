@@ -44,4 +44,4 @@ shinyUI(fluidPage(
 
 # needed to run the app from code
 
-runApp(port="80", host="0.0.0.0") 
+runApp(port=getOption("shiny.port", 80), host=getOption("shiny.host", "0.0.0.0")) 
